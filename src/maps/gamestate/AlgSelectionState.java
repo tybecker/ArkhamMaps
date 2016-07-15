@@ -8,10 +8,11 @@ import java.awt.event.KeyEvent;
 import maps.main.BlankMapGenerator;
 import maps.main.MapGenerator1;
 import maps.main.MapGenerator2;
+import maps.main.MapGenerator3;
 
 public class AlgSelectionState extends MapsState{
 	
-	private String[] options = {"EmptyMap", "Algorithm 1: simple", "Algorithm 2: Steady state", "Back"};
+	private String[] options = {"EmptyMap", "Algorithm 1: simple", "Algorithm 2: Steady state", "Algorithm 3: Weighted Generator", "Back"};
 	private int currentSelection = 0;
 
 	public AlgSelectionState(MapsStateManager msm) {
@@ -68,6 +69,8 @@ public class AlgSelectionState extends MapsState{
 			}else if(currentSelection == 2){
 				msm.states.push(new MapGeneratorState(msm, new MapGenerator2()));
 			}else if(currentSelection == 3){
+				msm.states.push(new MapGeneratorState(msm, new MapGenerator3()));
+			}else if(currentSelection == 4){
 				msm.states.pop();
 			}
 		}

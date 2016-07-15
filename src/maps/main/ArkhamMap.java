@@ -308,6 +308,19 @@ public class ArkhamMap {
 		}
 	}
 	
+	public boolean hasOpenConnections(){
+		
+		for(int i = 0; i < WIDTH; i++){
+			for(int j = 0; j < HEIGHT; j++){
+				if(mapGrid[i][j] == 0 && hasAdjacentConnected(i, j)){
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
 	//Planned methods:
 	//public boolean hasAdjacentCorner(int x, int y)
 	//public boolean hasAdjacentConnected(int x, int y)
