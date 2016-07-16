@@ -25,7 +25,9 @@ public class ArkhamMap {
 	//public final int WIDTH = 40;
 	//public final int HEIGHT = 30;
 	
-	int[][] mapGrid = new int[40][30];
+	int[][] riverGrid = new int[WIDTH][HEIGHT];
+	
+	int[][] mapGrid = new int[WIDTH][HEIGHT];
 	
 	public ArkhamMap(){
 		
@@ -36,7 +38,11 @@ public class ArkhamMap {
 		
 		for(int i = 0; i < mapGrid.length; i++){
 			for(int j = 0; j < mapGrid[0].length; j++){
-				g.drawImage(Images.mapPieces[mapGrid[i][j]], xCoord + (i * 30), yCoord + (j * 30), 30, 30, null);
+				if(riverGrid[i][j] == 1){
+					g.drawImage(Images.riverPieces[mapGrid[i][j]], xCoord + (i * 30), yCoord + (j * 30), 30, 30, null);
+				}else{
+					g.drawImage(Images.mapPieces[mapGrid[i][j]], xCoord + (i * 30), yCoord + (j * 30), 30, 30, null);
+				}
 			}
 		}
 	}
@@ -321,6 +327,13 @@ public class ArkhamMap {
 		return false;
 	}
 	
+	public void setRiver(int x, int y, int z){
+		riverGrid[x][y] = z;
+	}
+	
+	public int getRiver(int x, int y){
+		return riverGrid[x][y];
+	}
 	//Planned methods:
 	//public boolean hasAdjacentCorner(int x, int y)
 	//public boolean hasAdjacentConnected(int x, int y)

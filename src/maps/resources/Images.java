@@ -9,6 +9,8 @@ public class Images {
 	
 	public static BufferedImage[] mapPieces;
 	
+	public static BufferedImage[] riverPieces;
+	
 	public Images(){
 		mapPieces = new BufferedImage[17];
 		
@@ -29,6 +31,29 @@ public class Images {
 			mapPieces[14] = ImageIO.read(getClass().getResourceAsStream("/streetpieces/Street14.png"));
 			mapPieces[15] = ImageIO.read(getClass().getResourceAsStream("/streetpieces/Street15.png"));
 			mapPieces[16] = ImageIO.read(getClass().getResourceAsStream("/streetpieces/Street16.png"));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		
+		riverPieces = new BufferedImage[17];
+		
+		try{
+			riverPieces[1] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River1.png"));
+			riverPieces[2] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River2.png"));
+			riverPieces[3] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River3.png"));
+			riverPieces[4] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River4.png"));
+			riverPieces[5] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River5.png"));
+			riverPieces[6] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River6.png"));
+			riverPieces[7] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River7.png"));
+			riverPieces[8] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River8.png"));
+			riverPieces[9] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River9.png"));
+			riverPieces[10] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River10.png"));
+			riverPieces[11] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River11.png"));
+			riverPieces[12] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River12.png"));
+			riverPieces[13] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River13.png"));
+			riverPieces[14] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River14.png"));
+			riverPieces[15] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River15.png"));
+			riverPieces[16] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River16.png"));
 		}catch(IOException e){
 			e.printStackTrace();
 		}
