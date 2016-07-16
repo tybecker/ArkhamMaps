@@ -9,7 +9,7 @@ public class MapGenerator4 extends MapGenerator{
 		//Generate Trunk roads
 		
 		//Generate offshoots
-m.reset();
+		m.reset();
 		
 		m.setTile(14, 9, 1);
 		

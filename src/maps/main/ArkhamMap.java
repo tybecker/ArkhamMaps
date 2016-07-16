@@ -261,8 +261,8 @@ public class ArkhamMap {
 		for(int i = 0; i < mapGrid.length; i++){
 			for(int j = 0; j < mapGrid[0].length; j++){
 				mapGrid[i][j] = 0;
+				riverGrid[i][j] = 0;
 			}
-			
 		}
 	}
 	
