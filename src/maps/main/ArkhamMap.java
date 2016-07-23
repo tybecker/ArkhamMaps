@@ -29,6 +29,23 @@ public class ArkhamMap {
 	
 	int[][] mapGrid = new int[WIDTH][HEIGHT];
 	
+	//For this grid, I'll list setpieces here:
+	//	1	1	1	|	13	7	7	The house on the end of the street
+	//	2	2	2	|	0	0	0	The park
+	//	2	2	2	|	0	0	0
+	//	2	2	2	|	0	0	0
+	//	3	|	0	The Hotel
+	//	3	|	7,2
+	//	4	4	4	|	Miskatonic U
+	//	4	4	4	|	
+	//	5	|	6	Market Road
+	//	5	|	6
+	//	5	|	3
+	//	5	|	6
+	//	5	|	6
+	//	6	6	|	0	5,6	The pawn shop.
+	int[][] setPieceGrid = new int[WIDTH][HEIGHT];
+	
 	public ArkhamMap(){
 		
 	}
@@ -61,7 +78,7 @@ public class ArkhamMap {
 	public boolean[] getAllowedTiles(int x, int y){
 		boolean[] allowedTiles = new boolean[17];
 		
-		for(int i = 0; i < allowedTiles.length; i++){
+		for(int i = 1; i < allowedTiles.length; i++){
 			allowedTiles[i] = true;
 		}
 		
@@ -203,7 +220,7 @@ public class ArkhamMap {
 	public boolean[] getAllowedTilesNoWater(int x, int y){
 		boolean[] allowedTiles = new boolean[17];
 		
-		for(int i = 0; i < allowedTiles.length; i++){
+		for(int i = 1; i < allowedTiles.length; i++){
 			allowedTiles[i] = true;
 		}
 		
@@ -533,7 +550,7 @@ public class ArkhamMap {
 		if(x > 0 && x < WIDTH && y > 0 && y < HEIGHT){
 			return riverGrid[x][y];
 		}
-		return 1;
+		return 0;
 	}
 	//Planned methods:
 	//public boolean hasAdjacentCorner(int x, int y)
