@@ -13,10 +13,11 @@ import maps.main.MapGenerator4;
 import maps.main.MapGenerator5;
 import maps.main.MapGenerator6;
 import maps.main.MapGenerator7;
+import maps.main.MapGenerator8;
 
 public class AlgSelectionState extends MapsState{
 	
-	private String[] options = {"EmptyMap", "Algorithm 1: simple", "Algorithm 2: Steady state", "Algorithm 3: Weighted Generator", "Algorithm 4: Random Rivers", "Algorithm 5: Less Random Rivers", "Algorithm 6: The Bounded Map", "Algorithm 7: Slightly Less Bounded Map", "Back"};
+	private String[] options = {"EmptyMap", "Algorithm 1: simple", "Algorithm 2: Steady state", "Algorithm 3: Weighted Generator", "Algorithm 4: Random Rivers", "Algorithm 5: Less Random Rivers", "Algorithm 6: The Bounded Map", "Algorithm 7: Slightly Less Bounded Map", "Algorithm 8: SetPieces", "Back"};
 	private int currentSelection = 0;
 
 	public AlgSelectionState(MapsStateManager msm) {
@@ -83,6 +84,8 @@ public class AlgSelectionState extends MapsState{
 			}else if(currentSelection == 7){
 				msm.states.push(new MapGeneratorState(msm, new MapGenerator7()));
 			}else if(currentSelection == 8){
+				msm.states.push(new MapGeneratorState(msm, new MapGenerator8()));
+			}else if(currentSelection == 9){
 				msm.states.pop();
 			}
 		}

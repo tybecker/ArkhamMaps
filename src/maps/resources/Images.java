@@ -11,6 +11,8 @@ public class Images {
 	
 	public static BufferedImage[] riverPieces;
 	
+	public static BufferedImage[] setPieces;
+	
 	public Images(){
 		mapPieces = new BufferedImage[17];
 		
@@ -54,6 +56,22 @@ public class Images {
 			riverPieces[14] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River14.png"));
 			riverPieces[15] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River15.png"));
 			riverPieces[16] = ImageIO.read(getClass().getResourceAsStream("/riverpieces/River16.png"));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		
+		setPieces = new BufferedImage[10];
+		
+		try{
+			setPieces[1] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece1.png"));
+			setPieces[2] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece2.png"));
+			setPieces[3] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece3_2.png"));
+			setPieces[4] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece3_7.png"));
+			setPieces[5] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece4.png"));
+			setPieces[6] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece5.png"));
+			setPieces[7] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece6_5.png"));
+			setPieces[8] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece6_6.png"));
+			setPieces[9] = ImageIO.read(getClass().getResourceAsStream("/setpieces/Setpiece7.png"));
 		}catch(IOException e){
 			e.printStackTrace();
 		}

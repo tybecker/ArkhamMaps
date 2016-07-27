@@ -36,14 +36,15 @@ public class ArkhamMap {
 	//	2	2	2	|	0	0	0
 	//	3	|	0	The Hotel
 	//	3	|	7,2
-	//	4	4	4	|	Miskatonic U
-	//	4	4	4	|	
+	//	4	4	4	|	0	0	0	Miskatonic U
+	//	4	4	4	|	0	0	0
 	//	5	|	6	Market Road
 	//	5	|	6
 	//	5	|	3
 	//	5	|	6
 	//	5	|	6
 	//	6	6	|	0	5,6	The pawn shop.
+	//	7 	|	7	Charlotte's boutique.
 	int[][] setPieceGrid = new int[WIDTH][HEIGHT];
 	
 	public ArkhamMap(){
@@ -62,13 +63,56 @@ public class ArkhamMap {
 				}
 			}
 		}
+		
+		boolean[] drawn = new boolean[10];
+		
+		for(int i = 0; i < drawn.length; i++){
+			drawn[i] = false;
+		}
+		
+		for(int i = 0; i < WIDTH; i++){
+			for(int j = 0; j < HEIGHT; j++){
+				if(setPieceGrid[i][j] != 0){
+					if(drawn[setPieceGrid[i][j]] == false){
+						if(setPieceGrid[i][j] == 1){
+							g.drawImage(Images.setPieces[1], xCoord + (i * 30), yCoord + (j * 30), 90, 30, null);
+						}else if(setPieceGrid[i][j] == 2){
+							g.drawImage(Images.setPieces[2], xCoord + (i * 30), yCoord + (j * 30), 90, 90, null);
+						}else if(setPieceGrid[i][j] == 3){
+							if(mapGrid[i][j + 1] == 2){
+								g.drawImage(Images.setPieces[3], xCoord + (i * 30), yCoord + (j * 30), 30, 60, null);
+							}else if(mapGrid[i][j + 1] == 7){
+								g.drawImage(Images.setPieces[4], xCoord + (i * 30), yCoord + (j * 30), 30, 60, null);
+							}
+						}else if(setPieceGrid[i][j] == 4){
+							g.drawImage(Images.setPieces[5], xCoord + (i * 30), yCoord + (j * 30), 90, 60, null);
+						}else if(setPieceGrid[i][j] == 5){
+							g.drawImage(Images.setPieces[6], xCoord + (i * 30), yCoord + (j * 30), 30, 150, null);
+						}else if(setPieceGrid[i][j] == 6){
+							if(mapGrid[i + 1][j] == 5){
+								g.drawImage(Images.setPieces[7], xCoord + (i * 30), yCoord + (j * 30), 60, 30, null);
+							}else if(mapGrid[i + 1][j] == 6){
+								g.drawImage(Images.setPieces[8], xCoord + (i * 30), yCoord + (j * 30), 60, 30, null);
+							}
+						}else if(setPieceGrid[i][j] == 7){
+							g.drawImage(Images.setPieces[9], xCoord + (i * 30), yCoord + (j * 30), 30, 30, null);
+						}else if(setPieceGrid[i][j] == 8){
+							
+						}else if(setPieceGrid[i][j] == 9){
+							
+						}
+						drawn[setPieceGrid[i][j]] = true;
+					}
+				}
+			}
+		}
 	}
 	
 	public int getTile(int x, int y){
-		//if(x > 0 && x < WIDTH && y > 0 && y < HEIGHT){
+		if(x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT){
 			return mapGrid[x][y];
-		//}
-		//return 16;
+		}
+		return 16;
 	}
 	
 	public void setTile(int x, int y, int n){
@@ -477,6 +521,7 @@ public class ArkhamMap {
 			for(int j = 0; j < mapGrid[0].length; j++){
 				mapGrid[i][j] = 0;
 				riverGrid[i][j] = 0;
+				setPieceGrid[i][j] = 0;
 			}
 		}
 	}
@@ -552,6 +597,23 @@ public class ArkhamMap {
 		}
 		return 0;
 	}
+	
+	public void setSetPiece(int x, int y, int z){
+		if(x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT){
+			setPieceGrid[x][y] = z;
+		}else{
+			
+		}
+	}
+	
+	public int getSetPiece(int x, int y){
+		if(x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT){
+			return setPieceGrid[x][y];
+		}else{
+			return 0;
+		}
+	}
+	
 	//Planned methods:
 	//public boolean hasAdjacentCorner(int x, int y)
 	//public boolean hasAdjacentConnected(int x, int y)
